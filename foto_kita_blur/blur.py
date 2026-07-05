@@ -47,6 +47,7 @@ def is_rock(hand_landmarks):
         pinky_up
     )
 
+# Mulai Webcam
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
@@ -70,6 +71,7 @@ while True:
         print("Gagal membaca kamera")
         break
 
+    # Mirror kamera
     frame = cv2.flip(frame, 1)
 
     rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -81,14 +83,14 @@ while True:
     if results.multi_hand_landmarks:
 
         for hand_landmarks in results.multi_hand_landmarks:
-
+            # Landmark hanya ditampilkan saat tidak blur
             if time.time() >= blur_until:
                 mp_draw.draw_landmarks(
                     frame,
                     hand_landmarks,
                     mp_hands.HAND_CONNECTIONS
                 )
-
+            # Deteksi gesture
             if is_peace(hand_landmarks) or is_rock(hand_landmarks):
                 gesture_detected = True
 
