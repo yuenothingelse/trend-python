@@ -59,8 +59,9 @@ print("✌️ Peace atau 🤘 Rock = Blur 5 Detik")
 print("ESC = Keluar")
 print("=======================================")
 
+# Lama blur
 blur_duration = 1.5 
-
+# Waktu berakhir blur
 blur_until = 0
 
 while True:
@@ -96,7 +97,8 @@ while True:
 
     if gesture_detected:
         blur_until = time.time() + blur_duration
-
+        
+    # Privacy Mode
     if time.time() < blur_until:
 
         frame = cv2.GaussianBlur(
