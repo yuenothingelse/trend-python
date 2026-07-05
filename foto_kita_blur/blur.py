@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import time
 
+# Inisialisasi MediaPipe Hands
 mp_hands = mp.solutions.hands
 
 hands = mp_hands.Hands(
@@ -12,6 +13,7 @@ hands = mp_hands.Hands(
 
 mp_draw = mp.solutions.drawing_utils
 
+# Gesture Peace
 def is_peace(hand_landmarks):
 
     lm = hand_landmarks.landmark
@@ -28,6 +30,7 @@ def is_peace(hand_landmarks):
         pinky_down
     )
 
+# Gesture Rock
 def is_rock(hand_landmarks):
 
     lm = hand_landmarks.landmark
